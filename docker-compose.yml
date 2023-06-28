@@ -1,5 +1,3 @@
 services:
-  postgres:
-    build:
-      context: postgres-db
-      dockerfile: postgres.dockerfile
+  api:
+    

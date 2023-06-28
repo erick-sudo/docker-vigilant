@@ -32,3 +32,5 @@ end
 gem "active_model_serializers", "~> 0.10.13"
 
 gem "pg", "~> 1.5"
+
+gem "rack-cors"
