@@ -4,7 +4,7 @@ function Home() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://3.80.47.206:5000/users").then((response) => {
+    fetch("http://3.87.15.51:5000/users").then((response) => {
       if (response.status < 400) {
         response.json().then((data) => {
           setUsers(data);
