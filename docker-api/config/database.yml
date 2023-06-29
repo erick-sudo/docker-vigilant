@@ -16,7 +16,7 @@ default: &default
 development:
   adapter: postgresql
   pool: 5
-  host: 3.80.47.206
+  host: 3.87.15.51
   port: 5432
   encoding: unicode
   database: users
@@ -26,7 +26,7 @@ development:
 production:
   adapter: postgresql
   pool: 5
-  host: 3.80.47.206
+  host: 3.87.15.51
   port: 5432
   encoding: unicode
   database: users
