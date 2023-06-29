@@ -19,9 +19,6 @@ RUN bundle install
 # Copy the rest of the Rails application files to the container
 COPY . .
 
-# Run migrations
-RUN rails db:migrate
-
 # Start the application
 # ENTRYPOINT ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
 
