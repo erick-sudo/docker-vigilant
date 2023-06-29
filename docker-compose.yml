@@ -1,3 +1,25 @@
 services:
   api:
-    
+    build:
+      context: docker-api
+      dockerfile: Dockerfile
+    ports:
+      - 5000:4000
+    depends_on:
+      - db
+
+  front:
+    build:
+      context: docker-front
+      dockerfile: Dockerfile
+    ports:
+    - 3000:80
+
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER: docker
+      - POSTGRES_PASSWORD: docker
+      - POSTGRES_DB: users
