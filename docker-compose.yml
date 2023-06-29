@@ -3,9 +3,6 @@ services:
     build:
       context: docker-api
       dockerfile: Dockerfile
-      args:
-        - IMAGE_NAME=docker-api
-    image: ${IMAGE_NAME}
     ports:
       - 5000:4000
     depends_on:
@@ -15,9 +12,6 @@ services:
     build:
       context: docker-front
       dockerfile: Dockerfile
-      args:
-        - IMAGE_NAME=docker-front
-    image: ${IMAGE_NAME}
     ports:
     - 3000:80
 
