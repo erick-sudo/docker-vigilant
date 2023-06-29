@@ -1,9 +1,27 @@
+# Pull the latest ruby image
 FROM ruby:latest
+
+# Setup system requirements
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
+
+# Create a working directory
 RUN mkdir /app
+
+# Set the working directory
 WORKDIR /app
-ADD Gemfile /app/Gemfile
+
+# Copy Gemfile
+COPY Gemfile /app/Gemfile
+
+# Install dependencies
 RUN bundle install
-ADD . /app
+
+# Copy the rest of the Rails application files to the container
+COPY . .
+
+# Run migrations
+RUN rails migrate
+
+# Start the application
 ENTRYPOINT ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
 # ENTRYPOINT ["bundle", "exec", "puma", "-C", "config/puma.rb", "-p", "4000"]
