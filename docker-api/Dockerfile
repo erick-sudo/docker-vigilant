@@ -23,5 +23,7 @@ COPY . .
 RUN rails db:migrate
 
 # Start the application
-ENTRYPOINT ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
-# ENTRYPOINT ["bundle", "exec", "puma", "-C", "config/puma.rb", "-p", "4000"]
+# ENTRYPOINT ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
+
+# Start the Rails application and run migrations
+CMD ["bash", "-c", "bundle exec rails db:migrate db:seed && bundle exec rails server -b 0.0.0.0 -p 4000"]
