@@ -19,8 +19,12 @@ RUN bundle install
 # Copy the rest of the Rails application files to the container
 COPY . .
 
-# Start the application
-# ENTRYPOINT ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
+# Copy the custom entrypoint script to the container
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
 
-# Start the Rails application and run migrations
-CMD ["bash", "-c", "bundle exec rails db:migrate db:seed && bundle exec rails server -b 0.0.0.0 -p 4000"]
+# Set the entrypoint to the custom script
+ENTRYPOINT ["entrypoint.sh"]
+
+# Start the application
+CMD ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
