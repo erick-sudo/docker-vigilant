@@ -20,7 +20,7 @@ RUN bundle install
 COPY . .
 
 # Run migrations
-RUN rails migrate
+RUN rails db:migrate
 
 # Start the application
 ENTRYPOINT ["rails", "s", "-b", "0.0.0.0", "-p", "4000"]
