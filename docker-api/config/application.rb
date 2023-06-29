@@ -30,6 +30,9 @@ module DockerApi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    #
+    config.hosts << "ec2-3-80-47-206.compute-1.amazonaws.com"
+
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
